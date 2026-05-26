@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 224 15% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 15% 12%;
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
+    --primary: 232 87% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 15% 95%;
+    --secondary-foreground: 224 15% 20%;
+    --muted: 220 15% 95%;
+    --muted-foreground: 220 10% 50%;
+    --accent: 232 87% 96%;
+    --accent-foreground: 232 87% 35%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 232 87% 60%;
+    --radius: 0.625rem;
+  }
+
+  .dark {
+    --background: 224 20% 8%;
+    --foreground: 210 20% 94%;
+    --card: 224 18% 11%;
+    --card-foreground: 210 20% 94%;
+    --border: 224 15% 18%;
+    --input: 224 15% 18%;
+    --primary: 232 87% 65%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 224 15% 15%;
+    --secondary-foreground: 210 20% 85%;
+    --muted: 224 15% 14%;
+    --muted-foreground: 220 10% 55%;
+    --accent: 232 50% 20%;
+    --accent-foreground: 232 87% 75%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 232 87% 65%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground font-sans antialiased; }
+  /* Prevent horizontal overflow on mobile */
+  html, body, #root { overflow-x: hidden; max-width: 100%; }
+}
+
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { @apply bg-border rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-muted-foreground; }
+
+@layer utilities {
+  .glass { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+  .glass-card { @apply glass bg-card/80 border border-border/50; }
+  .gradient-primary { background: linear-gradient(135deg, hsl(232 87% 60%) 0%, hsl(262 83% 65%) 100%); }
+  .gradient-success { background: linear-gradient(135deg, hsl(142 71% 45%) 0%, hsl(162 72% 40%) 100%); }
+  .gradient-warning { background: linear-gradient(135deg, hsl(38 92% 50%) 0%, hsl(25 95% 53%) 100%); }
+  .gradient-danger { background: linear-gradient(135deg, hsl(0 84% 60%) 0%, hsl(340 75% 55%) 100%); }
+  .gradient-info { background: linear-gradient(135deg, hsl(199 89% 48%) 0%, hsl(221 83% 53%) 100%); }
+  .text-gradient { background: linear-gradient(135deg, hsl(232 87% 60%) 0%, hsl(262 83% 65%) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .card-hover { @apply transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, hsl(var(--muted)) 25%, hsl(var(--secondary)) 50%, hsl(var(--muted)) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ─── Mobile Responsive Utilities ─────────────────────────────────────────── */
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+
+  /* Prevent iOS zoom on input focus */
+  @media screen and (max-width: 768px) {
+    input, select, textarea {
+      font-size: 16px !important;
+    }
+  }
+
+  /* Safe area padding for notched devices */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  /* Hide scrollbar on mobile for cleaner look */
+  @media (max-width: 1023px) {
+    .hide-scrollbar-mobile {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .hide-scrollbar-mobile::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+/* ─── Responsive Typography ──────────────────────────────────────────────── */
+@layer utilities {
+  .text-responsive-h1 {
+    @apply text-xl sm:text-2xl font-bold font-display tracking-tight;
+  }
+  .text-responsive-h2 {
+    @apply text-lg sm:text-xl font-semibold font-display;
+  }
+}
+
+/* ─── Print Styles ───────────────────────────────────────────────────────── */
+@media print {
+  .sidebar, .topbar, button, .no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+  }
+}

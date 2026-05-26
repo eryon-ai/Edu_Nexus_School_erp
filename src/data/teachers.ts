@@ -1,0 +1,12 @@
+import { Teacher } from '../types'
+
+export const teachers: Teacher[] = [
+  { id: 'T001', name: 'Dr. Ravi Shankar', employeeId: 'EMP001', department: 'Mathematics', subject: 'Advanced Mathematics', qualification: 'PhD Mathematics', experience: 15, phone: '9845001001', email: 'ravi.shankar@school.edu', joinDate: '2009-07-01', salary: 75000, status: 'Active', classes: ['10A', '11A', '12A'] },
+  { id: 'T002', name: 'Mrs. Sunita Kapoor', employeeId: 'EMP002', department: 'Sciences', subject: 'Physics', qualification: 'M.Sc Physics', experience: 12, phone: '9845001002', email: 'sunita.kapoor@school.edu', joinDate: '2012-07-01', salary: 68000, status: 'Active', classes: ['11A', '11B', '12A'] },
+  { id: 'T003', name: 'Mr. Prakash Rao', employeeId: 'EMP003', department: 'Sciences', subject: 'Chemistry', qualification: 'M.Sc Chemistry', experience: 8, phone: '9845001003', email: 'prakash.rao@school.edu', joinDate: '2016-07-01', salary: 62000, status: 'Active', classes: ['11B', '12B'] },
+  { id: 'T004', name: 'Ms. Lakshmi Devi', employeeId: 'EMP004', department: 'Languages', subject: 'English Literature', qualification: 'MA English', experience: 10, phone: '9845001004', email: 'lakshmi.devi@school.edu', joinDate: '2014-07-01', salary: 58000, status: 'Active', classes: ['9A', '9B', '10A'] },
+  { id: 'T005', name: 'Mr. Ashok Mishra', employeeId: 'EMP005', department: 'Social Studies', subject: 'History & Civics', qualification: 'MA History', experience: 20, phone: '9845001005', email: 'ashok.mishra@school.edu', joinDate: '2004-07-01', salary: 82000, status: 'On Leave', classes: ['8A', '9A'] },
+  { id: 'T006', name: 'Mrs. Preethi Iyer', employeeId: 'EMP006', department: 'Computer Science', subject: 'Computer Applications', qualification: 'MCA', experience: 6, phone: '9845001006', email: 'preethi.iyer@school.edu', joinDate: '2018-07-01', salary: 65000, status: 'Active', classes: ['10A', '10B', '11A'] },
+  { id: 'T007', name: 'Mr. Naveen Chandra', employeeId: 'EMP007', department: 'Sciences', subject: 'Biology', qualification: 'M.Sc Biology', experience: 9, phone: '9845001007', email: 'naveen.chandra@school.edu', joinDate: '2015-07-01', salary: 63000, status: 'Active', classes: ['11A', '12A', '12B'] },
+  { id: 'T008', name: 'Ms. Rekha Sinha', employeeId: 'EMP008', department: 'Mathematics', subject: 'Statistics', qualification: 'M.Sc Statistics', experience: 7, phone: '9845001008', email: 'rekha.sinha@school.edu', joinDate: '2017-07-01', salary: 60000, status: 'Active', classes: ['11B', '12A', '12B'] },
+]
